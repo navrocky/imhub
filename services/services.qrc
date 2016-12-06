@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/services">
+        <file>telegram/service.json</file>
+        <file>telegram/icon.svg</file>
+        <file>telegram/script.js</file>
+    </qresource>
+</RCC>

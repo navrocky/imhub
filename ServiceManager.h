@@ -17,6 +17,8 @@ public:
     ServiceDescriptors serviceDescriptors() const { return serviceDescriptors_; }
 
 private:
-    ServiceDescriptors serviceDescriptors_;
+    QMap<QString, QString> collectServices();
+    void loadFromResources();
 
+    ServiceDescriptors serviceDescriptors_;
 };

@@ -5,9 +5,14 @@ CONFIG += c++11
 SOURCES += main.cpp \
     model/ServiceDescriptor.cpp \
     model/Service.cpp \
-    ServiceManager.cpp
+    ServiceManager.cpp \
+    ServiceSource.cpp \
+    FolderServiceSource.cpp \
+    Exception.cpp \
+    Tools.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += qml.qrc \
+    services/services.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -20,4 +25,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     model/ServiceDescriptor.h \
     model/Service.h \
-    ServiceManager.h
+    ServiceManager.h \
+    ServiceSource.h \
+    FolderServiceSource.h \
+    Exception.h \
+    Tools.h
