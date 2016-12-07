@@ -3,24 +3,33 @@
 #include <QDir>
 #include <QMap>
 
+#include "ServiceSource.h"
 
 ServiceManager::ServiceManager(QObject* parent)
     : QObject(parent)
 {
 }
 
+void ServiceManager::addSource(ServiceSource* s)
+{
+    sources_.append(s);
+}
+
 void ServiceManager::initialize()
 {
-
-}
-
-QMap<QString, QString> ServiceManager::collectServices()
-{
-    QDir d(":/services/");
-    for (auto dirName : d.entryList(QDir::Dirs))
+    QMap<QString, ServiceSource*> names;
+    qDeleteAll(serviceDescriptors_);
+    serviceDescriptors_.clear();
+    for (auto s : sources_)
     {
-
+        s->collectNames(names);
     }
 
+    auto it = names.begin();
+    for (; it != names.end(); ++it)
+    {
+        serviceDescriptors_.append(it.value()->loadDescriptor(it.key(), this));
+    }
 }
+
 

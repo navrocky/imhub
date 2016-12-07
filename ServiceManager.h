@@ -4,11 +4,15 @@
 
 #include "model/ServiceDescriptor.h"
 
+class ServiceSource;
+
 class ServiceManager : public QObject
 {
     Q_OBJECT
 public:
     ServiceManager(QObject* parent = 0);
+
+    void addSource(ServiceSource*);
 
     void initialize();
 
@@ -17,8 +21,8 @@ public:
     ServiceDescriptors serviceDescriptors() const { return serviceDescriptors_; }
 
 private:
-    QMap<QString, QString> collectServices();
     void loadFromResources();
 
     ServiceDescriptors serviceDescriptors_;
+    QList<ServiceSource*> sources_;
 };

@@ -1,6 +1,6 @@
 #include "ServiceDescriptor.h"
 
-#include <QVariantMap>
+#include <QJsonObject>
 
 ServiceDescriptor::ServiceDescriptor(QObject* parent)
     : QObject(parent)
@@ -48,11 +48,12 @@ void ServiceDescriptor::setScriptPath(const QString& script)
     scriptPath_ = script;
 }
 
-void ServiceDescriptor::loadFromMap(const QVariantMap& m)
+void ServiceDescriptor::loadFromJson(const QJsonDocument& m)
 {
-    title_ = m["title"].toString();
-    url_ = QUrl(m["url"].toString());
-    iconPath_ = m["icon"].toString();
-    scriptPath_ = m["script"].toString();
+    auto o = m.object();
+    title_ = o.value("title").toString();
+    url_ = QUrl(o.value("url").toString());
+    iconPath_ = o.value("icon").toString();
+    scriptPath_ = o.value("script").toString();
 
 }

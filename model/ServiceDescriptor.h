@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QIcon>
+#include <QJsonDocument>
 #include <QObject>
 #include <QUrl>
 
@@ -22,7 +23,7 @@ public:
     QString scriptPath() const;
     void setScriptPath(const QString& scriptPath);
 
-    void loadFromMap(const QVariantMap& m);
+    void loadFromJson(const QJsonDocument& m);
 
 private:
     QString title_;
