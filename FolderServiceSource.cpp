@@ -4,7 +4,7 @@
 
 #include "Exception.h"
 #include "Tools.h"
-#include "model/ServiceDescriptor.h"
+#include "model/WebServiceDescriptor.h"
 
 static const auto SERVICE_DESCR_FILE = QStringLiteral("service.json");
 
@@ -23,12 +23,14 @@ void FolderServiceSource::collectNames(QMap<QString, ServiceSource*>& names)
     }
 }
 
-ServiceDescriptor* FolderServiceSource::loadDescriptor(const QString& name, QObject* parent)
+WebServiceDescriptor* FolderServiceSource::loadDescriptor(const QString& name, QObject* parent)
 {
     QDir serviceDir = QFileInfo(dir_, name).absoluteFilePath();
     QString descrFilePath = serviceDir.filePath(SERVICE_DESCR_FILE);
     QJsonDocument doc = Tools::loadJsonFromFile(descrFilePath);
-    auto d = new ServiceDescriptor(parent);
+    auto d = new WebServiceDescriptor(parent);
+    d->setDescriptorDirUrl(serviceDir.absolutePath());
+    d->setName(name);
     d->loadFromJson(doc);
     return d;
 }

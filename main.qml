@@ -4,34 +4,53 @@ import QtQuick.Layouts 1.0
 
 ApplicationWindow {
     visible: true
-    width: 640
-    height: 480
-    title: qsTr("Hello World")
+    width: 800
+    height: 600
+    title: qsTr("Imhub")
 
-    SwipeView {
-        id: swipeView
+    Loader {
+        id: splashLoader
+        asynchronous: true
+        source: "Splash.qml"
         anchors.fill: parent
-        currentIndex: tabBar.currentIndex
-
-        Page1 {
-        }
-
-        Page {
-            Label {
-                text: qsTr("Second page")
-                anchors.centerIn: parent
-            }
-        }
     }
 
-    footer: TabBar {
-        id: tabBar
-        currentIndex: swipeView.currentIndex
-        TabButton {
-            text: qsTr("First")
-        }
-        TabButton {
-            text: qsTr("Second")
-        }
-    }
+//    Loader {
+//        id: mainPageLoader
+//        asynchronous: true
+//        source: "Splash.qml"
+//        anchors.fill: parent
+//    }
+
+
+//    Splash {
+//        anchors.fill: parent
+//    }
+
+////    SwipeView {
+////        id: swipeView
+////        anchors.fill: parent
+////        currentIndex: tabBar.currentIndex
+
+////        Page1 {
+////        }
+
+////        Page {
+////            Label {
+////                text: qsTr("Second page")
+////                anchors.centerIn: parent
+////            }
+////        }
+////    }
+
+//    footer: TabBar {
+//        id: tabBar
+//        currentIndex: swipeView.currentIndex
+//        TabButton {
+//            text: qsTr("First")
+//        }
+//        TabButton {
+//            text: qsTr("Second")
+//        }
+//    }
 }

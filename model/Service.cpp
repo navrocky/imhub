@@ -6,7 +6,7 @@ Service::Service(QObject* parent)
 
 }
 
-ServiceDescriptor* Service::descriptor() const
+WebServiceDescriptor* Service::descriptor() const
 {
     return descriptor_;
 }

@@ -2,7 +2,7 @@
 
 #include <QObject>
 
-#include "model/ServiceDescriptor.h"
+#include "model/WebServiceDescriptor.h"
 
 class ServiceSource;
 
@@ -16,7 +16,7 @@ public:
 
     void initialize();
 
-    typedef QList<ServiceDescriptor*> ServiceDescriptors;
+    typedef QList<WebServiceDescriptor*> ServiceDescriptors;
 
     ServiceDescriptors serviceDescriptors() const { return serviceDescriptors_; }
 

@@ -25,8 +25,7 @@ void ServiceManager::initialize()
         s->collectNames(names);
     }
 
-    auto it = names.begin();
-    for (; it != names.end(); ++it)
+    for (auto it = names.begin(); it != names.end(); ++it)
     {
         serviceDescriptors_.append(it.value()->loadDescriptor(it.key(), this));
     }

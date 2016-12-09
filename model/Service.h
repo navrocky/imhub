@@ -2,7 +2,7 @@
 
 #include <QObject>
 
-class ServiceDescriptor;
+class WebServiceDescriptor;
 
 class Service : public QObject
 {
@@ -10,8 +10,8 @@ class Service : public QObject
 public:
     Service(QObject* parent = 0);
 
-    ServiceDescriptor* descriptor() const;
+    WebServiceDescriptor* descriptor() const;
 
 private:
-    ServiceDescriptor* descriptor_;
+    WebServiceDescriptor* descriptor_;
 };
