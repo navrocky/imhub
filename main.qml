@@ -8,49 +8,36 @@ ApplicationWindow {
     height: 600
     title: qsTr("Imhub")
 
+    id: root
+
+    property bool splashShown: false
+
     Loader {
         id: splashLoader
         asynchronous: true
         source: "Splash.qml"
         anchors.fill: parent
+        z: 1000
+        Connections {
+            target: splashLoader.item
+            onShownChanged: root.tryCloseSplash()
+        }
     }
 
-//    Loader {
-//        id: mainPageLoader
-//        asynchronous: true
-//        source: "Splash.qml"
-//        anchors.fill: parent
-//    }
+    Loader {
+        id: mainPageLoader
+        visible: false
+        active: true
+        asynchronous: true
+        source: "MainPage.qml"
+        anchors.fill: parent
+        onLoaded: root.tryCloseSplash()
+    }
 
-
-//    Splash {
-//        anchors.fill: parent
-//    }
-
-////    SwipeView {
-////        id: swipeView
-////        anchors.fill: parent
-////        currentIndex: tabBar.currentIndex
-
-////        Page1 {
-////        }
-
-////        Page {
-////            Label {
-////                text: qsTr("Second page")
-////                anchors.centerIn: parent
-////            }
-////        }
-////    }
-
-//    footer: TabBar {
-//        id: tabBar
-//        currentIndex: swipeView.currentIndex
-//        TabButton {
-//            text: qsTr("First")
-//        }
-//        TabButton {
-//            text: qsTr("Second")
-//        }
-//    }
+    function tryCloseSplash() {
+        if (splashLoader.item.shown && mainPageLoader.status == Loader.Ready) {
+            mainPageLoader.visible = true
+            splashLoader.item.close()
+        }
+    }
 }
