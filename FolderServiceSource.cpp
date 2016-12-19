@@ -8,8 +8,9 @@
 
 static const auto SERVICE_DESCR_FILE = QStringLiteral("service.json");
 
-FolderServiceSource::FolderServiceSource(const QDir& dir)
-    : dir_(dir)
+FolderServiceSource::FolderServiceSource(const QDir& dir, QObject* parent)
+    : ServiceSource(parent)
+    , dir_(dir)
 {
 }
 

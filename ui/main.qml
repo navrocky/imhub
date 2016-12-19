@@ -15,7 +15,7 @@ ApplicationWindow {
     Loader {
         id: splashLoader
         asynchronous: true
-        source: "Splash.qml"
+        source: "/ui/Splash.qml"
         anchors.fill: parent
         z: 1000
         Connections {
@@ -29,7 +29,7 @@ ApplicationWindow {
         visible: false
         active: true
         asynchronous: true
-        source: "MainPage.qml"
+        source: "/ui/MainPage.qml"
         anchors.fill: parent
         onLoaded: root.tryCloseSplash()
     }

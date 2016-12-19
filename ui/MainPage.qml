@@ -5,6 +5,6 @@ StackView {
     width: 100
     height: 100
 
-    initialItem: "qrc:/SettingsPage.qml"
+    initialItem: "qrc:/ui/settings/SettingsPage.qml"
 
 }

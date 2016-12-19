@@ -3,6 +3,7 @@
 #include <QObject>
 
 #include "model/WebServiceDescriptor.h"
+#include "ObjectListModel.h"
 
 class ServiceSource;
 
@@ -18,7 +19,9 @@ public:
 
     typedef QList<WebServiceDescriptor*> ServiceDescriptors;
 
-    ServiceDescriptors serviceDescriptors() const { return serviceDescriptors_; }
+    Q_INVOKABLE QList<WebServiceDescriptor*> serviceDescriptors() const { return serviceDescriptors_; }
+
+    Q_INVOKABLE ObjectListModel* serviceDescriptorsModel();
 
 private:
     void loadFromResources();

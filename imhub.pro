@@ -1,6 +1,17 @@
-QT += qml quick webengine
+QT += qml quick webengine svg
 
 CONFIG += c++11
+
+HEADERS += \
+    model/Service.h \
+    ServiceManager.h \
+    ServiceSource.h \
+    FolderServiceSource.h \
+    Exception.h \
+    Tools.h \
+    model/WebServiceDescriptor.h \
+    model/ServiceDescriptor.h \
+    ObjectListModel.h
 
 SOURCES += main.cpp \
     model/Service.cpp \
@@ -10,7 +21,8 @@ SOURCES += main.cpp \
     Exception.cpp \
     Tools.cpp \
     model/WebServiceDescriptor.cpp \
-    model/ServiceDescriptor.cpp
+    model/ServiceDescriptor.cpp \
+    ObjectListModel.cpp
 
 RESOURCES += qml.qrc \
     services/services.qrc
@@ -23,12 +35,4 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-HEADERS += \
-    model/Service.h \
-    ServiceManager.h \
-    ServiceSource.h \
-    FolderServiceSource.h \
-    Exception.h \
-    Tools.h \
-    model/WebServiceDescriptor.h \
-    model/ServiceDescriptor.h
+

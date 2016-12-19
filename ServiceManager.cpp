@@ -31,4 +31,11 @@ void ServiceManager::initialize()
     }
 }
 
+ObjectListModel* ServiceManager::serviceDescriptorsModel()
+{
+    ObjectListModel* res = new ObjectListModel(this);
+    res->setList(serviceDescriptors_);
+    return res;
+}
+
 
