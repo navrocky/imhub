@@ -10,6 +10,11 @@ ServiceManager::ServiceManager(QObject* parent)
 {
 }
 
+ServiceManager::~ServiceManager()
+{
+    qDeleteAll(serviceDescriptors_);
+}
+
 void ServiceManager::addSource(ServiceSource* s)
 {
     sources_.append(s);
@@ -29,6 +34,16 @@ void ServiceManager::initialize()
     {
         serviceDescriptors_.append(it.value()->loadDescriptor(it.key(), this));
     }
+}
+
+QVariantList ServiceManager::serviceDescriptors() const
+{
+    QVariantList res;
+    for (auto o : serviceDescriptors_)
+    {
+        res.append(QVariant::fromValue(o));
+    }
+    return res;
 }
 
 ObjectListModel* ServiceManager::serviceDescriptorsModel()

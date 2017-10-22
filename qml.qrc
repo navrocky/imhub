@@ -1,4 +1,4 @@
-<RCC>
+<!DOCTYPE RCC><RCC version="1.0">
     <qresource prefix="/">
         <file>qtquickcontrols2.conf</file>
         <file>ui/settings/AvailableServicesPage.qml</file>

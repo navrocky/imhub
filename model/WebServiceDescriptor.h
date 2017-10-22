@@ -10,6 +10,9 @@
 class WebServiceDescriptor : public ServiceDescriptor
 {
     Q_OBJECT
+    Q_PROPERTY(QString name READ name WRITE setName)
+    Q_PROPERTY(QString title READ title WRITE setTitle)
+    Q_PROPERTY(QString iconUrl READ iconUrl)
 public:
     WebServiceDescriptor(QObject* parent = 0);
 

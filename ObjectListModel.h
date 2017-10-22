@@ -8,6 +8,8 @@
 class ListAdaptorBase
 {
 public:
+    virtual ~ListAdaptorBase();
+
     virtual int size() = 0;
     virtual QObject* object(int i) = 0;
     virtual QHash<int, QByteArray> roleNames() = 0;

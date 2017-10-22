@@ -1,5 +1,6 @@
 import QtQuick 2.0
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.2
+import QtQuick.Controls.Material 2.2
 
 Rectangle {
 
@@ -13,12 +14,12 @@ Rectangle {
     }
 
     id: root
-    color: "white"
+    color: Material.color(Material.Grey, Material.Shade900)
 
     Text {
         anchors.centerIn: parent
         id: title
-        color: "black"
+        color: "white"
         text: qsTr("imhub")
         font.pointSize: root.height * 0.2
         opacity: 0

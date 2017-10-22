@@ -1,10 +1,11 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QtWebEngine>
+#include <QQuickStyle>
 #include "ServiceManager.h"
 #include "FolderServiceSource.h"
 
-static QObject *serviceManagerSingletonProvider(QQmlEngine*, QJSEngine*)
+static QObject* serviceManagerSingletonProvider(QQmlEngine*, QJSEngine*)
 {
     ServiceManager* serviceManager = new ServiceManager(qApp);
     FolderServiceSource* source = new FolderServiceSource(QDir(":/services/"), serviceManager);
@@ -27,6 +28,9 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     qmlRegisterSingletonType<ServiceManager>("Imhub", 1, 0, "ServiceManager", serviceManagerSingletonProvider);
+    qmlRegisterType<ObjectListModel>();
+
+    QQuickStyle::setStyle("Material");
 
     engine.load(QUrl(QLatin1String("qrc:/ui/main.qml")));
 

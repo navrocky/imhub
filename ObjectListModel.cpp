@@ -1,5 +1,9 @@
 #include "ObjectListModel.h"
 
+ListAdaptorBase::~ListAdaptorBase()
+{
+}
+
 ObjectListModel::ObjectListModel(QObject* parent)
     : QAbstractListModel(parent)
 {
@@ -21,3 +25,4 @@ QHash<int, QByteArray> ObjectListModel::roleNames() const
 {
     return listAdaptor_->roleNames();
 }
+

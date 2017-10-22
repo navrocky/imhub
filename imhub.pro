@@ -1,4 +1,4 @@
-QT += qml quick webengine svg
+QT += qml quick webengine svg quickcontrols2
 
 CONFIG += c++11
 
