@@ -11,8 +11,8 @@ class WebServiceDescriptor : public ServiceDescriptor
 {
     Q_OBJECT
     Q_PROPERTY(QString name READ name WRITE setName)
-    Q_PROPERTY(QString title READ title WRITE setTitle)
-    Q_PROPERTY(QString iconUrl READ iconUrl)
+    Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged)
+    Q_PROPERTY(QString iconUrl READ iconUrl NOTIFY iconUrlChanged)
 public:
     WebServiceDescriptor(QObject* parent = 0);
 
@@ -38,6 +38,10 @@ public:
 
     QString descriptorDirUrl() const;
     void setDescriptorDirUrl(const QString& descriptorDirUrl);
+
+signals:
+    void titleChanged();
+    void iconUrlChanged();
 
 private:
     QString descriptorDirUrl_;

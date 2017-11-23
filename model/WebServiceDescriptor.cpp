@@ -15,7 +15,10 @@ QString WebServiceDescriptor::title() const
 
 void WebServiceDescriptor::setTitle(const QString& title)
 {
+    if (title_ == title)
+        return;
     title_ = title;
+    emit titleChanged();
 }
 
 QUrl WebServiceDescriptor::url() const
@@ -25,6 +28,8 @@ QUrl WebServiceDescriptor::url() const
 
 void WebServiceDescriptor::setUrl(const QUrl& url)
 {
+    if (url_ == url)
+        return;
     url_ = url;
 }
 
@@ -35,7 +40,10 @@ QString WebServiceDescriptor::iconName() const
 
 void WebServiceDescriptor::setIconName(const QString& icon)
 {
+    if (iconName_ == icon)
+        return;
     iconName_ = icon;
+    emit iconUrlChanged();
 }
 
 QString WebServiceDescriptor::iconUrl() const

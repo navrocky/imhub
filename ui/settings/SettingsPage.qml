@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
+import QtQuick.Controls.Material 2.2
 
 Item {
 
@@ -26,30 +27,45 @@ Item {
             }
         }
 
-        ListView {
-            id: listView
-            clip: true
-            focus: true
+        Pane {
+
+            Material.elevation: 2
             Layout.column: 0
             Layout.row: 1
-            model: [
-                qsTr("Add service"),
-                qsTr("Available services")
-            ]
             width: 200
             Layout.fillHeight: true
-            delegate: ItemDelegate {
-                text: modelData
-                width: parent.width
-                highlighted: ListView.isCurrentItem
-                onClicked: {
-                    console.log(index)
-//                    swipeView.currentIndex = index
-                    listView.currentIndex = index
-                }
+            implicitWidth: 200
+            padding: 0
+
+            background: Rectangle {
+                color: Material.color(Material.Red)
             }
-            ScrollIndicator.vertical: ScrollIndicator {}
+
+            ListView {
+                id: listView
+                clip: true
+                focus: true
+                anchors.fill: parent
+                model: [
+                    qsTr("Add service"),
+                    qsTr("Available services")
+                ]
+                width: 200
+                Layout.fillHeight: true
+                delegate: ItemDelegate {
+                    text: modelData
+                    width: parent.width
+                    highlighted: ListView.isCurrentItem
+                    onClicked: {
+                        console.log(index)
+    //                    swipeView.currentIndex = index
+                        listView.currentIndex = index
+                    }
+                }
+                ScrollIndicator.vertical: ScrollIndicator {}
+            }
         }
+
 
         StackLayout {
             id: swipeView
