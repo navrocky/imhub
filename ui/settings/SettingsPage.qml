@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
+import "../controls" as UI
 
 Item {
 
@@ -21,51 +22,50 @@ Item {
                 ToolButton {
                     text: "Back"
                 }
-                Label {
+                UI.ExtLabel {
                     text: "Settings"
                 }
             }
         }
 
         Pane {
-
-            Material.elevation: 2
+            Material.elevation: 6
             Layout.column: 0
             Layout.row: 1
             width: 200
             Layout.fillHeight: true
             implicitWidth: 200
             padding: 0
+            z: 100
 
-            background: Rectangle {
-                color: Material.color(Material.Red)
-            }
-
-            ListView {
-                id: listView
-                clip: true
-                focus: true
+            Rectangle {
                 anchors.fill: parent
-                model: [
-                    qsTr("Add service"),
-                    qsTr("Available services")
-                ]
-                width: 200
-                Layout.fillHeight: true
-                delegate: ItemDelegate {
-                    text: modelData
-                    width: parent.width
-                    highlighted: ListView.isCurrentItem
-                    onClicked: {
-                        console.log(index)
-    //                    swipeView.currentIndex = index
-                        listView.currentIndex = index
+                color: Material.color(Material.Grey, Material.Shade800)
+                ListView {
+                    id: listView
+                    clip: true
+                    focus: true
+                    anchors.fill: parent
+                    model: [
+                        qsTr("Add service"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as")
+                    ]
+                    width: implicitWidth
+                    Layout.fillHeight: true
+                    delegate: ItemDelegate {
+                        text: modelData
+                        width: implicitWidth
+                        highlighted: ListView.isCurrentItem
+                        onClicked: {
+                            console.log(index)
+        //                    swipeView.currentIndex = index
+                            listView.currentIndex = index
+                        }
                     }
+                    ScrollIndicator.vertical: ScrollIndicator {}
                 }
-                ScrollIndicator.vertical: ScrollIndicator {}
             }
         }
-
 
         StackLayout {
             id: swipeView
@@ -73,8 +73,10 @@ Item {
             Layout.row: 1
             Layout.fillWidth: true
             Layout.fillHeight: true
+            visible: false
             clip: true
             currentIndex: listView.currentIndex
+            z: -1
             AvailableServicesPage {
 
             }

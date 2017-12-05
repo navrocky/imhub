@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtGraphicalEffects 1.0
 import Imhub 1.0
-import ".." as UI
+import "../controls" as UI
 
 Item {
     GridLayout {

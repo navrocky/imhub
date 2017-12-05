@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtGraphicalEffects 1.0
+import "../controls" as UI
 
 ItemDelegate {
 
@@ -36,10 +37,9 @@ ItemDelegate {
             color: root.textColor
         }
 
-        Label {
+        UI.ExtLabel {
             id: serviceLabel
             text: root.title
-            renderType: "NativeRendering"
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: serviceIcon.bottom
         }

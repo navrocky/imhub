@@ -7,6 +7,6 @@
         <file>ui/MainPage.qml</file>
         <file>ui/Splash.qml</file>
         <file>ui/settings/ServiceItemDelegate.qml</file>
-        <file>ui/ExtLabel.qml</file>
+        <file>ui/controls/ExtLabel.qml</file>
     </qresource>
 </RCC>
