@@ -3,6 +3,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 import "../controls" as UI
+import "../controls/tools.js" as Tools
 
 Item {
 
@@ -32,11 +33,19 @@ Item {
             Material.elevation: 6
             Layout.column: 0
             Layout.row: 1
-            width: 200
+//            width: 200
             Layout.fillHeight: true
-            implicitWidth: 200
+            implicitWidth: listView.implicitWidth
             padding: 0
             z: 100
+
+            Behavior on width {
+
+                NumberAnimation {
+                    duration: 200
+                    easing.type: Easing.InOutQuad
+                }
+            }
 
             Rectangle {
                 anchors.fill: parent
@@ -48,16 +57,79 @@ Item {
                     anchors.fill: parent
                     model: [
                         qsTr("Add service"),
-                        qsTr("Available services  sd asd as das das da sd asd asd as")
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Available services  sd asd as das das da sd asd asd as"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service"),
+                        qsTr("Add service")
                     ]
-                    width: implicitWidth
+                    implicitWidth: Tools.getMaxItemsImplicitWidth(listView.contentItem.children)
+
                     Layout.fillHeight: true
                     delegate: ItemDelegate {
                         text: modelData
-                        width: implicitWidth
+                        width: parent.width
                         highlighted: ListView.isCurrentItem
                         onClicked: {
-                            console.log(index)
+//                            console.log(index)
         //                    swipeView.currentIndex = index
                             listView.currentIndex = index
                         }

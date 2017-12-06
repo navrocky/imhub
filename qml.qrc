@@ -8,5 +8,6 @@
         <file>ui/Splash.qml</file>
         <file>ui/settings/ServiceItemDelegate.qml</file>
         <file>ui/controls/ExtLabel.qml</file>
+        <file>ui/controls/tools.js</file>
     </qresource>
 </RCC>
