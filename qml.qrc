@@ -9,5 +9,7 @@
         <file>ui/settings/ServiceItemDelegate.qml</file>
         <file>ui/controls/ExtLabel.qml</file>
         <file>ui/controls/tools.js</file>
+        <file>ui/controls/style.js</file>
+        <file>ui/controls/OptionsLandingPage.qml</file>
     </qresource>
 </RCC>

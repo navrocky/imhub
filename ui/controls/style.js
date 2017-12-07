@@ -1,0 +1,4 @@
+.pragma library
+
+var HEADER_BIG_POINT_SIZE = 20
+var HEADER_MEDIUM_POINT_SIZE = 14

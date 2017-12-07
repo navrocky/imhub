@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 import "../controls" as UI
 import "../controls/tools.js" as Tools
+import "../controls/style.js" as Style
 
 Item {
 
@@ -18,13 +19,15 @@ Item {
             Layout.row: 0
             Layout.columnSpan: 2
             Layout.fillWidth: true
-            z: 1
+            z: 2
             RowLayout {
                 ToolButton {
                     text: "Back"
                 }
                 UI.ExtLabel {
                     text: "Settings"
+                    font.bold: true
+                    font.pointSize: Style.HEADER_MEDIUM_POINT_SIZE
                 }
             }
         }
@@ -33,17 +36,15 @@ Item {
             Material.elevation: 6
             Layout.column: 0
             Layout.row: 1
-//            width: 200
             Layout.fillHeight: true
             implicitWidth: listView.implicitWidth
             padding: 0
-            z: 100
+            z: 1
 
-            Behavior on width {
-
+            Behavior on implicitWidth {
                 NumberAnimation {
-                    duration: 200
-                    easing.type: Easing.InOutQuad
+                    duration: 300
+                    easing.type: Easing.OutQuad
                 }
             }
 
@@ -121,7 +122,7 @@ Item {
                         qsTr("Add service"),
                         qsTr("Add service")
                     ]
-                    implicitWidth: Tools.getMaxItemsImplicitWidth(listView.contentItem.children)
+                    implicitWidth: Math.max(200, Tools.getMaxItemsImplicitWidth(listView.contentItem.children))
 
                     Layout.fillHeight: true
                     delegate: ItemDelegate {
@@ -129,8 +130,6 @@ Item {
                         width: parent.width
                         highlighted: ListView.isCurrentItem
                         onClicked: {
-//                            console.log(index)
-        //                    swipeView.currentIndex = index
                             listView.currentIndex = index
                         }
                     }
@@ -139,22 +138,36 @@ Item {
             }
         }
 
-        StackLayout {
-            id: swipeView
-            Layout.column: 1
-            Layout.row: 1
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            visible: false
-            clip: true
-            currentIndex: listView.currentIndex
-            z: -1
-            AvailableServicesPage {
-
-            }
+        UI.OptionsLandingPage {
             Rectangle {
                 color: "green"
+                height: 200
+            }
+            Rectangle {
+                color: "yellow"
+                height: 400
+            }
+            Rectangle {
+                color: "red"
+                height: 300
             }
         }
+
+
+//        StackLayout {
+//            id: swipeView
+//            Layout.column: 1
+//            Layout.row: 1
+//            Layout.fillWidth: true
+//            Layout.fillHeight: true
+//            clip: true
+//            currentIndex: listView.currentIndex
+//            AvailableServicesPage {
+
+//            }
+//            Rectangle {
+//                color: "green"
+//            }
+//        }
     }
 }
