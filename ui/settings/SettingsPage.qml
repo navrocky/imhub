@@ -139,35 +139,49 @@ Item {
         }
 
         UI.OptionsLandingPage {
-            Rectangle {
-                color: "green"
-                height: 200
-            }
-            Rectangle {
-                color: "yellow"
-                height: 400
-            }
-            Rectangle {
-                color: "red"
-                height: 300
-            }
+
+            //            components: ["asda","adsd"]
+
+            Layout.column: 1
+            Layout.row: 1
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            items: [
+                Component {
+                    Rectangle {
+                        color: "green"
+                        height: 200
+                        width: 200
+                    }
+                }
+            ]
+            //            Rectangle {
+            //                color: "yellow"
+            //                height: 400
+            //            },
+            //            Rectangle {
+            //                color: "red"
+            //                height: 300
+            //            }
+            //            ]
         }
 
 
-//        StackLayout {
-//            id: swipeView
-//            Layout.column: 1
-//            Layout.row: 1
-//            Layout.fillWidth: true
-//            Layout.fillHeight: true
-//            clip: true
-//            currentIndex: listView.currentIndex
-//            AvailableServicesPage {
+        //        StackLayout {
+        //            id: swipeView
+        //            Layout.column: 1
+        //            Layout.row: 1
+        //            Layout.fillWidth: true
+        //            Layout.fillHeight: true
+        //            clip: true
+        //            currentIndex: listView.currentIndex
+        //            AvailableServicesPage {
 
-//            }
-//            Rectangle {
-//                color: "green"
-//            }
-//        }
+        //            }
+        //            Rectangle {
+        //                color: "green"
+        //            }
+        //        }
     }
 }

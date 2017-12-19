@@ -1,10 +1,21 @@
 import QtQuick 2.0
 
-Item {
+Rectangle {
 
-    default property list components
+    color: "yellow"
+    property var items
+
+//    default property var components
+
+    ListView {
+        model: items
+        delegate: Rectangle {
+
+        }
+    }
 
     Component.onCompleted: {
+//        console.log(components.length)
 
 
     }
